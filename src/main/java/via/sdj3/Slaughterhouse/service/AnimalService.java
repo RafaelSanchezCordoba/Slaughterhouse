@@ -10,6 +10,7 @@ public interface AnimalService {
     Animal create(Animal animal);
     List<Animal> getAll();
     List<Animal> getAllAnimalsByDate(Date date);
+    List<Animal> getAllAnimalsByOrigin(String origin);
     Optional<Animal> getAnimalById(Integer id);
     Animal update(Animal animal);
     void deleteById(Integer id);
