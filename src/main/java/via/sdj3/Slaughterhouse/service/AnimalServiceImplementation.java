@@ -5,7 +5,8 @@ import org.springframework.stereotype.Service;
 import via.sdj3.Slaughterhouse.model.Animal;
 import via.sdj3.Slaughterhouse.repository.AnimalRepository;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,17 +22,36 @@ public class AnimalServiceImplementation implements AnimalService{
 
     @Override
     public List<Animal> getAll() {
-        return (List<Animal>) animalRepository.findAll();
+        return animalRepository.findAll();
     }
 
     @Override
-    public List<Animal> getAllAnimalsByDate(Date date) {
-        return animalRepository.findAll(date);
+    public List<Animal> getAllAnimalsByDate(LocalDate date) {
+        List<Animal> animalList = new ArrayList<>();
+
+        for (Animal animal : animalRepository.findAll()) {
+            if (animal.getDate().getDayOfMonth() == date.getDayOfMonth() &&
+                    animal.getDate().getMonth() == date.getMonth()
+                    && animal.getDate().getYear() == date.getYear()) {
+
+                animalList.add(animal);
+            }
+        }
+
+        return animalList;
     }
 
     @Override
     public List<Animal> getAllAnimalsByOrigin(String origin) {
-        return animalRepository.findAll(origin);
+        List<Animal> animals = animalRepository.findAll();
+        List<Animal> list = new ArrayList<>();
+
+        for (int i = 0; i < animals.size(); i++) {
+            if (animals.get(i).getOrigin().equals(origin)) {
+                list.add(animals.get(i));
+            }
+        }
+        return list;
     }
 
     @Override

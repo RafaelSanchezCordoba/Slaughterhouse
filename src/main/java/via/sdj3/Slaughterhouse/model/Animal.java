@@ -1,11 +1,13 @@
 package via.sdj3.Slaughterhouse.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 @Entity
 @Table
@@ -21,7 +23,8 @@ public class Animal {
     @Column(nullable = false)
     private String origin;
     @Column(nullable = false)
-    private Date date;
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private LocalDate date;
 
     public int getRegNum() {
         return regNum;
@@ -35,7 +38,7 @@ public class Animal {
         return origin;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
@@ -51,7 +54,7 @@ public class Animal {
         this.origin = origin;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 }
