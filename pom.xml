@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>via.sdj3</groupId>
 	<artifactId>Slaughterhouse</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>SNAPSHOT-0.0.1</version>
 	<name>Slaughterhouse</name>
 	<description>Assignment sdj3</description>
 	<properties>
