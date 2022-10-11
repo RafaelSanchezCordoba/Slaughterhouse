@@ -14,7 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class Animal {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int regNum;
     @Column(nullable = false)
     private double weight;
@@ -23,4 +23,35 @@ public class Animal {
     @Column(nullable = false)
     private Date date;
 
+    public int getRegNum() {
+        return regNum;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setRegNum(int regNum) {
+        this.regNum = regNum;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 }
